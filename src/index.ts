@@ -4,8 +4,8 @@ import cookieParser from 'cookie-parser';
 import logger from 'morgan';
 import dotenv from 'dotenv';
 
-import indexRouter from './controllers/index';
-import usersRouter from './controllers/Url';
+import indexController from './controllers/index';
+import usersController from './controllers/Users';
 
 dotenv.config();
 
@@ -16,8 +16,8 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 
-app.use('/', indexRouter);
-app.use('/users', usersRouter);
+app.use('/', indexController);
+app.use('/users', usersController);
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
